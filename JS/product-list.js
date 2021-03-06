@@ -1,33 +1,11 @@
 //Importer la liste des produits 
 
-const getProductList = () => {
-    return [
-        {
-            _id: '8585-8585-858',
-            title: 'Mon Produit 1',
-            imageSrc: 'https://lagranderecre-lagranderecre-fr-storage.omn.proximis.com/Imagestorage/imagesSynchro/0/0/00e5086b7308053bec09b3be036c036dbb27af5d_IMG-PRODUCT-234470-1.jpeg',
-            price : 1555
-        },
-        {
-            _id: '8585-8585-859',
-            title: 'Mon Produit 2',
-            imageSrc: 'https://lagranderecre-lagranderecre-fr-storage.omn.proximis.com/Imagestorage/imagesSynchro/0/0/9236ce51429d78cb3effb7d453e9736a90304d33_IMG-PRODUCT-473254-1.jpeg',
-            price : 1555
-        } , 
-        {
-            _id: '8585-8585-860',
-            title: 'Mon Produit 3',
-            imageSrc: 'https://lagranderecre-lagranderecre-fr-storage.omn.proximis.com/Imagestorage/imagesSynchro/0/0/9236ce51429d78cb3effb7d453e9736a90304d33_IMG-PRODUCT-473254-1.jpeg',
-            price : 1355
-        } , 
-        {
-            _id: '8585-8585-861',
-            title: 'Mon Produit 4',
-            imageSrc: 'https://lagranderecre-lagranderecre-fr-storage.omn.proximis.com/Imagestorage/imagesSynchro/0/0/9236ce51429d78cb3effb7d453e9736a90304d33_IMG-PRODUCT-473254-1.jpeg',
-            price : 1055
-        } 
+const getProductList = async () => {
+    const result = await fetch ("http://localhost:3000/api/teddies")
+    const productList = await result.json ()
+    return productList ;
 
-    ]
+console.log(productList)
 }
 
 //Afficher la liste
@@ -42,8 +20,8 @@ const displayProductList = (productList) => {
 
         itemElement.setAttribute('class', 'item-product');
 
-        itemImageElement.setAttribute('src', productItem.imageSrc);
-        itemTitleElement.textContent = productItem.title;
+        itemImageElement.setAttribute('src', productItem.imageUrl);
+        itemTitleElement.textContent = productItem.name;
         itemPriceElement.textContent = `${productItem.price/100}€`;
         itemButton.href = `detail.html?id=${productItem._id}`;
         itemButton.textContent = 'Afficher plus de détails';
@@ -57,8 +35,8 @@ const displayProductList = (productList) => {
   
     }  
 } 
-function init() {
-    const productList = getProductList()
+async function init() {
+    const productList = await getProductList()
     displayProductList(productList)
 }
 init();
