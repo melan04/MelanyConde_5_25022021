@@ -39,7 +39,6 @@ const displayProductDetail = (product) => {
     itemELement.appendChild(itemLabelElement)
     itemLabelElement.appendChild(itemOptionElement)
     itemELement.appendChild(itemButtonElement)
-
     document.getElementById('productDetail').appendChild(itemELement);
 
 }

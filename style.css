@@ -77,14 +77,14 @@ strong {
     margin-bottom: 0px;
 }
 
-.item-product img {
+/* .item-product img {
     margin: auto;
     height: 50%;
     width: 50%;
-}
+} */
 
 .item-product-detail img {
-    width: 250px;
+    width: auto;
     height: 250px;
     margin: auto;
 }
