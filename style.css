@@ -1,141 +1,131 @@
-
 body {
-	margin: 0;
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
-    font-family: 'RocknRoll One', sans-serif;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "RocknRoll One", sans-serif;
 }
 
 header {
-    background: #F3E9F1;
-    min-height: 150px;
-    display: flex;
-    
+  background: #f3e9f1;
+  min-height: 150px;
+  display: flex;
 }
 
-.logo {   
-    align-self: center;
-    height: 80px;
-    margin-left: 20px;
+.logo {
+  align-self: center;
+  height: 80px;
+  margin-left: 20px;
 }
 
 main {
-    flex : 1;
-    margin: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
+  flex: 1;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
 }
 
-h1{
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 25px;
+h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 25px;
 }
 
 .item-product {
-    display: flex;
-    flex-direction: column;
-    border:  5px solid #472d7f;
-    border-radius: 25px;
-    height: auto;
-    max-width: 350px;
-    margin: auto;
-    margin-bottom: 40px;
-    padding: 20px; 
-    box-shadow: #472d7f 10px 10px;
+  display: flex;
+  flex-direction: column;
+  border: 5px solid #472d7f;
+  border-radius: 25px;
+  height: auto;
+  max-width: 350px;
+  margin: auto;
+  margin-bottom: 40px;
+  padding: 20px;
+  box-shadow: #472d7f 10px 10px;
 }
 
 .item-product-detail {
-    display: flex;
-    flex-direction: column;
-    border:  5px solid #472d7f;
-    border-radius: 25px;
-    min-height: 450px;
-    max-width: 850px;
-    margin: auto;
-    padding: 20px; 
+  display: flex;
+  flex-direction: column;
+  border: 5px solid #472d7f;
+  border-radius: 25px;
+  min-height: 450px;
+  max-width: 850px;
+  margin: auto;
+  padding: 20px;
 }
 
 h2 {
-    text-align: center;
-    font-size: 20px;
+  text-align: center;
+  font-size: 20px;
 }
 
 p {
-font-size: 14px;
-text-align:justify;
-margin : 10px;
-font-family: Arial, Helvetica, sans-serif;
-
+  font-size: 14px;
+  text-align: justify;
+  margin: 10px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 strong {
-    text-align: center;
-    margin-bottom: 0px;
+  text-align: center;
+  margin-bottom: 0px;
 }
 
-/* .item-product img {
-    margin: auto;
-    height: 50%;
-    width: 50%;
-} */
-
 .item-product-detail img {
-    width: auto;
-    height: 250px;
-    margin: auto;
+  width: auto;
+  height: 250px;
+  margin: auto;
 }
 
 .item-product button {
-    padding: 20px;
-    border-radius: 25px;
+  padding: 20px;
+  border-radius: 25px;
 }
 
 .item-product a {
-    color:#472d7f;
-    font-weight: bold;  
-    border-radius: 25px;
-    border : #472d7f solid 2px;
-    text-align: center;
-    padding: 10px;
-    margin: 10px;
-    font-size: 10px;
-    text-decoration: none;
+  color: #472d7f;
+  font-weight: bold;
+  border-radius: 25px;
+  border: #472d7f solid 2px;
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+  font-size: 12px;
+  text-decoration: none;
 }
 
-button {
-
-    margin: 10px;
-    padding : 20px;
-    text-decoration: none;
-    font-family: 'RocknRoll One', sans-serif;
-    color: #472d7f;
-    border-radius: 25px;
+.cart {
+  margin: 10px;
+  padding: 20px;
+  text-decoration: none;
+  font-family: "RocknRoll One", sans-serif;
+  color: #472d7f;
+  border-radius: 25px;
+  border: #472d7f solid 2px;
+  text-align: center;
 }
 label {
-    font-size: 15px;
-    margin: 10px;
-    text-align: center;
+  font-size: 15px;
+  margin: 10px;
+  text-align: center;
 }
 select {
-
-    border : 1px solid #472d7f;
-    width: 30%;
-    margin:10px;
-    margin-left: 25px;
-    padding: 10px;
-
+  border: 1px solid #472d7f;
+  width: 30%;
+  margin: 10px;
+  margin-left: 25px;
+  padding: 10px;
 }
 
 option {
-    font-size: 50px;
-    text-decoration: none;
+  font-size: 50px;
+  text-decoration: none;
 }
 
 footer {
-    background:#472d7f;
-    min-height: 100px;
+  background: #472d7f;
+  min-height: 100px;
 }

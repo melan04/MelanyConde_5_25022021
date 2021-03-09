@@ -14,9 +14,10 @@ const displayProductDetail = (product) => {
     const itemDescriptionElement = document.createElement('p')
     const itemLabelElement = document.createElement('label')
     const itemOptionElement = document.createElement('select')
-    const itemButtonElement = document.createElement('button')
+    const itemButtonElement = document.createElement('button-cart')
 
     itemELement.setAttribute('class', 'item-product-detail');
+    itemButtonElement.setAttribute('class','cart');
     itemImageElement.setAttribute('src', product.imageUrl);
     itemTitleElement.textContent = product.name;
     itemPriceElement.textContent = `${product.price / 100}€`;
