@@ -4,8 +4,6 @@ const getProductList = async () => {
     const result = await fetch ("http://localhost:3000/api/teddies")
     const productList = await result.json ()
     return productList ;
-
-console.log(productList)
 }
 
 //Afficher la liste

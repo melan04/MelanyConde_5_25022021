@@ -4,7 +4,6 @@ const getProduct = async (id) => {
     return product;
 }
 
-// ce qui est a l'intérieur de la fonction reste à l'intérieur de la fonction
 const displayProductDetail = (product) => {
 
     const itemELement = document.createElement('div');
@@ -17,7 +16,7 @@ const displayProductDetail = (product) => {
     const itemButtonElement = document.createElement('button-cart')
 
     itemELement.setAttribute('class', 'item-product-detail');
-    itemButtonElement.setAttribute('class','cart');
+    itemButtonElement.setAttribute('class', 'cart');
     itemImageElement.setAttribute('src', product.imageUrl);
     itemTitleElement.textContent = product.name;
     itemPriceElement.textContent = `${product.price / 100}€`;
@@ -42,7 +41,80 @@ const displayProductDetail = (product) => {
     itemELement.appendChild(itemButtonElement)
     document.getElementById('productDetail').appendChild(itemELement);
 
+
+    // Ajouter un élément dans le panier 
+
+    let carts = document.querySelectorAll('button-cart');
+
+    for (let i = 0; i < carts.length; i++) {
+        carts[i].addEventListener('click', () => {
+            cartNumbers(product);
+
+        })
+    }
+
+
+    function onLoadCartNumbers() {
+        let productNumbers = localStorage.getItem('cartNumbers')
+
+        if (productNumbers) {
+            document.querySelector('.cart-shop span').textContent = productNumbers;
+        }
+    }
+
+    function cartNumbers(product) {
+
+        let productNumbers = localStorage.getItem('cartNumbers');
+
+        productNumbers = parseInt(productNumbers); // on transforme le "string" en nombre  
+
+        if (productNumbers) {
+            localStorage.setItem('cartNumbers', productNumbers + 1); // si productNumbers existe deja dans le locale storage
+            document.querySelector('.cart-shop span').textContent = productNumbers + 1;
+        } else {
+            localStorage.setItem('cartNumbers', 1); // si productNumbers n'existe pas encore dans le local storage
+            document.querySelector('.cart-shop span').textContent = 1;
+        }
+
+        setItems(product);
+
+    }
+
+
+    function setItems(product) {
+        let cartItems = localStorage.getItem('productInCart');
+        cartItems = JSON.parse(cartItems);
+
+
+        if (cartItems !== null) {
+
+            if (cartItems[product._id] == undefined) {
+                product.inCart = 0;
+                cartItems = {
+                    ...cartItems,
+                    [product._id]: product
+
+                }
+            }
+            cartItems[product._id].inCart += 1;
+
+        } else {
+            product.inCart = 1;
+            cartItems = {
+                [product._id]: product
+            }
+        }
+
+        localStorage.setItem('productInCart', JSON.stringify(cartItems));
+
+    }
+
+
+    onLoadCartNumbers();
 }
+
+
+// Appeler la fonction 
 
 async function init() {
 
@@ -51,6 +123,7 @@ async function init() {
     const productId = params.get("id");
     const productList = await getProduct(productId)
     displayProductDetail(productList)
+
 }
 init();
 

@@ -26,6 +26,8 @@ Page 3 :
 - Afficher les produits sélectionnés
     - Photo 
     - Titre 
+    - couleur
+    - quantité
     - Prix 
 - Afficher le prix total de la commande 
 - Bouton supprimé un article
