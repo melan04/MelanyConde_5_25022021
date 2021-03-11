@@ -1,9 +1,9 @@
 //Importer la liste des produits 
 
 const getProductList = async () => {
-    const result = await fetch ("http://localhost:3000/api/teddies")
-    const productList = await result.json ()
-    return productList ;
+    const result = await fetch("http://localhost:3000/api/teddies")
+    const productList = await result.json()
+    return productList;
 }
 
 //Afficher la liste
@@ -14,13 +14,13 @@ const displayProductList = (productList) => {
         const itemImageElement = document.createElement('img');
         const itemTitleElement = document.createElement('h2');
         const itemPriceElement = document.createElement('strong');
-        const itemButton = document.createElement ('a')
+        const itemButton = document.createElement('a')
 
         itemElement.setAttribute('class', 'item-product');
 
         itemImageElement.setAttribute('src', productItem.imageUrl);
         itemTitleElement.textContent = productItem.name;
-        itemPriceElement.textContent = `${productItem.price/100}€`;
+        itemPriceElement.textContent = `${productItem.price / 100}€`;
         itemButton.href = `detail.html?id=${productItem._id}`;
         itemButton.textContent = 'Afficher plus de détails';
 
@@ -30,11 +30,21 @@ const displayProductList = (productList) => {
         itemElement.appendChild(itemButton)
 
         document.getElementById('productListContainer').appendChild(itemElement);
-  
-    }  
-} 
+
+    }
+}
+
+function onLoadCartNumbers() {
+    let productNumbers = localStorage.getItem('cartNumbers')
+
+    if (productNumbers) {
+        document.querySelector('.cart-shop span').textContent = productNumbers;
+    }
+}
+
 async function init() {
     const productList = await getProductList()
     displayProductList(productList)
+    onLoadCartNumbers();
 }
 init();
