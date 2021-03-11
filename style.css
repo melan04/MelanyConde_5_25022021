@@ -22,7 +22,7 @@ nav {
   flex-direction: row;
   align-self: center;
   position: absolute;
-  right: 20px;
+  right: 50px;
 }
 
 nav li {
@@ -165,7 +165,8 @@ footer {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  padding-bottom: 100px;
+  padding-top: 50px;
+  padding-bottom: 50px;
   max-width: 650px;
   justify-content: space-around;
   margin: auto;
@@ -248,4 +249,49 @@ h5 {
 .basketTotal {
   width: 20%;
   text-align: center;
+}
+
+/* ------------ FORM ------------ */
+.shopping-container p {
+  color: #472d7f;
+  font-size: 20px;
+  margin: 20px;
+  text-align: center;
+  font-family: "RocknRoll One", sans-serif;
+}
+
+.item-form {
+  border: 5px solid #472d7f;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  max-width: 500px;
+  margin: auto;
+}
+
+.item-form div {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+}
+
+.item-form div label {
+  width: 30%;
+  text-align: left;
+}
+
+.item-form div input {
+  display: flex;
+  justify-content: center;
+  height: 20px;
+  width: 60%;
+}
+
+.button-form {
+  padding: 20px;
+  border-radius: 25px;
+  border: #472d7f 1px solid;
+  font-family: "RocknRoll One", sans-serif;
 }
