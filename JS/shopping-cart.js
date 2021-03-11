@@ -23,7 +23,7 @@ function displayCart() {
         <img src = ${product.imageUrl}>
         <span>${product.name}</span>
         <div class= "price">${product.price / 100} €</div>
-        <div class = "quantity " > <span> ${product.inCart} </span>
+        <div class = "quantity "> ${product.inCart}
         </div>
         <div class= "total"> 
         ${product.inCart * product.price / 100}€
