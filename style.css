@@ -40,10 +40,10 @@ li a i {
   padding: 5px;
 }
 
-.logo {
-  align-self: center;
+a img {
   height: 80px;
   margin-left: 20px;
+  margin-top: 30px;
 }
 
 main {
@@ -67,7 +67,7 @@ h1 {
   border: 5px solid #472d7f;
   border-radius: 25px;
   height: auto;
-  max-width: 250px;
+  width: 300px;
   margin: auto;
   margin-bottom: 40px;
   padding: 20px;
@@ -260,38 +260,40 @@ h5 {
   font-family: "RocknRoll One", sans-serif;
 }
 
-.item-form {
+form {
   border: 5px solid #472d7f;
   display: flex;
   flex-direction: column;
   padding: 20px;
-  max-width: 500px;
+  width: 500px;
   margin: auto;
 }
 
-.item-form div {
-  margin-bottom: 15px;
-  display: flex;
-  flex-direction: row;
+form label {
   text-align: center;
-  align-items: center;
 }
 
-.item-form div label {
-  width: 30%;
-  text-align: left;
-}
-
-.item-form div input {
-  display: flex;
-  justify-content: center;
+form label input {
   height: 20px;
-  width: 60%;
+  width: 100%;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  text-align: center;
 }
 
 .button-form {
-  padding: 20px;
+  padding: 10px;
   border-radius: 25px;
-  border: #472d7f 1px solid;
+  border: #472d7f 2px solid;
   font-family: "RocknRoll One", sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.products-container {
+  width: 500px;
+}
+
+#order_confirmed {
+  text-align: center;
 }
