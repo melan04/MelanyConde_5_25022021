@@ -265,7 +265,7 @@ form {
   display: flex;
   flex-direction: column;
   padding: 20px;
-  width: 500px;
+  width: 450px;
   margin: auto;
 }
 
@@ -296,4 +296,63 @@ form label input {
 
 #order_confirmed {
   text-align: center;
+}
+
+@media only screen and (max-width: 550px) {
+  .item-product {
+    display: flex;
+    flex-direction: column;
+    border: 5px solid #472d7f;
+    border-radius: 25px;
+    height: auto;
+    max-width: 300px;
+    margin: auto;
+    margin-bottom: 40px;
+    padding: 10px;
+    box-shadow: #472d7f 10px 10px;
+  }
+
+  .item-product-detail {
+    display: flex;
+    flex-direction: column;
+    border: 5px solid #472d7f;
+    border-radius: 25px;
+    min-height: 450px;
+    max-width: 350px;
+    margin: auto;
+    padding: 20px;
+  }
+
+  .item-product-detail img {
+    max-width: 100%;
+    height: 250px;
+    margin: auto;
+  }
+  form {
+    border: 5px solid #472d7f;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    max-width: 300px;
+    margin: auto;
+  }
+
+  .products-container {
+    max-width: 300px;
+  }
+
+  header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  nav {
+    bottom: 5px;
+  }
+
+  a img {
+    height: 80px;
+    margin-left: 110px;
+    margin-top: 20px;
+  }
 }
