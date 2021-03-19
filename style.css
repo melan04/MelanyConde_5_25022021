@@ -159,7 +159,7 @@ footer {
   min-height: 100px;
 }
 
-/* ------------ CART PAGE ---------------- */
+/* Panier  */
 
 .products-container {
   display: flex;
@@ -167,9 +167,9 @@ footer {
   flex-wrap: wrap;
   padding-top: 50px;
   padding-bottom: 50px;
-  max-width: 650px;
   justify-content: space-around;
   margin: auto;
+  width: 500px;
 }
 
 .products-container i {
@@ -250,8 +250,6 @@ h5 {
   width: 20%;
   text-align: center;
 }
-
-/* ------------ FORM ------------ */
 .shopping-container p {
   color: #472d7f;
   font-size: 20px;
@@ -260,6 +258,11 @@ h5 {
   font-family: "RocknRoll One", sans-serif;
 }
 
+#order_confirmed {
+  text-align: center;
+}
+
+/* Formulaire  */
 form {
   border: 5px solid #472d7f;
   display: flex;
@@ -290,13 +293,7 @@ form label input {
   font-size: 15px;
 }
 
-.products-container {
-  width: 500px;
-}
-
-#order_confirmed {
-  text-align: center;
-}
+/* Breakpoint pour le responsive */
 
 @media only screen and (max-width: 550px) {
   .item-product {

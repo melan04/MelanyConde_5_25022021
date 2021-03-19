@@ -1,11 +1,11 @@
+// Appeler la liste de produit grâce à l'id 
 const getProduct = async (id) => {
   const result = await fetch(`http://localhost:3000/api/teddies/${id}`);
   const product = await result.json();
   return product;
 };
 
-// AFFICHER LE PRODUIT ----------------//
-
+// Créer le l'article avec les détails 
 const displayProductDetail = (product) => {
   const itemELement = document.createElement("div");
   const itemImageElement = document.createElement("img");
@@ -42,10 +42,8 @@ const displayProductDetail = (product) => {
   itemELement.appendChild(itemButtonElement);
   document.getElementById("productDetail").appendChild(itemELement);
 
-  // Ajouter un élément dans le panier ------------------
-
+  // Ajouter un élément dans le panier 
   let carts = document.querySelectorAll("button-cart");
-
   for (let i = 0; i < carts.length; i++) {
     carts[i].addEventListener("click", () => {
       cartNumbers(product);
@@ -53,9 +51,7 @@ const displayProductDetail = (product) => {
     });
   }
 
-
-// AFFICHER LE NOMBRE DE PRODUIT DANS LE PANIER DU MENU ---------
-
+  // Afficher le nombre de produits dans le header
   function onLoadCartNumbers() {
     let productNumbers = localStorage.getItem("cartNumbers");
 
@@ -64,9 +60,7 @@ const displayProductDetail = (product) => {
     }
   }
 
-
-// AFFICHER LE TOTAL DES ARTICLES 
-
+  // Ajouter la totalité des articles dans le local storage
   function cartNumbers(product) {
     let productNumbers = localStorage.getItem("cartNumbers");
 
@@ -81,50 +75,43 @@ const displayProductDetail = (product) => {
       document.querySelector(".cart-shop span").textContent = 1;
     }
     setItems(product);
-   
   }
 
-// AJOUTER CHAQUE ARTICLE DIFFERENTS DANS LE PANIER
-
+  // Ajouter les différents articles dans le local storage 
   function setItems(product) {
     let cartItems = localStorage.getItem("productInCart");
     cartItems = JSON.parse(cartItems);
 
     if (cartItems !== null) {
-      
-        if (cartItems[product._id] == undefined) {
+      if (cartItems[product._id] == undefined) {
         product.inCart = 0;
-        
+
         cartItems = {
           ...cartItems,
           [product._id]: product,
         };
       }
-      
+
       cartItems[product._id].inCart += 1;
-   
     } else {
       product.inCart = 1;
-     
+
       cartItems = {
         [product._id]: product,
       };
     }
 
-    localStorage.setItem("productInCart", JSON.stringify(cartItems)); 
-    
-  
+    localStorage.setItem("productInCart", JSON.stringify(cartItems));
   }
 
-  // AJOUTER LE TOTAL 
-
+  
+// Faire le total des produits du panier
   function totalCost(product) {
     let cartCost = localStorage.getItem("totalCost");
 
     if (cartCost != null) {
       cartCost = parseInt(cartCost);
       localStorage.setItem("totalCost", cartCost + product.price / 100);
-   
     } else {
       localStorage.setItem("totalCost", product.price / 100);
     }
@@ -133,14 +120,12 @@ const displayProductDetail = (product) => {
   onLoadCartNumbers();
 };
 
-// Appeler la fonction
-
+// Appeler les fonctions
 async function init() {
-  const paramsUrl = window.location.search;
+  const paramsUrl = window.location.search; 
   const params = new URLSearchParams(paramsUrl);
-  const productId = params.get("id");
+  const productId = params.get("id"); // appeler les produits en ajoutant l'ID à l'URL 
   const productList = await getProduct(productId);
   displayProductDetail(productList);
-  
 }
 init();
