@@ -159,6 +159,15 @@ footer {
   min-height: 100px;
 }
 
+footer p {
+  display: flex;
+  font-size: 14px;
+  margin-top: 40px;
+  justify-content: center;
+  color: #f3e9f1;
+  font-family: "RocknRoll One", sans-serif;
+}
+
 /* Panier  */
 
 .products-container {
