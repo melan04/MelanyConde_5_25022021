@@ -1,7 +1,7 @@
 Construire un site e-commerce
 
 Ce projet est mené dans le cadre d'une formation de développeur web d'Openclassrooms.
-Le but est la création d'un site e-commerce. Le développement concerne la partie frontend. J
+Le but est la création d'un site e-commerce. Le développement concerne la partie frontend.
 
 Contexte : Je suis DWJ à Orinoco. L'objectif est de développer un site de vente d'ours en peluche
 
@@ -23,8 +23,6 @@ Clonez le backend depuis l'adresse https://github.com/OpenClassrooms-Student-Cen
 À partir du dossier du backend, exécutez npm install pour installer toutes les dependencies du backend.
 
 Vous pouvez démarrer le serveur avec la commande node server. Il démarre par défaut sur localhost:3000/.
-
-Si le serveur s'exécute sur un autre port pour une raison quelconque, cela est imprimé sur la console lorsque le serveur démarre, par exemple Listening on port 3001.
 
 Frontend
 Clonez le projet.
