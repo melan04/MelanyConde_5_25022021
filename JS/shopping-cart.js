@@ -65,7 +65,8 @@ function displayForm() {
     (itemInputNameElement.placeholder = "Entrez votre nom"),
     (itemInputNameElement.name = "nom"),
     (itemInputNameElement.id = "nameid");
-  itemLabelNameElement.appendChild(itemInputNameElement);
+  (itemInputNameElement.pattern = "[A-zÀ-ž\s -? ]{2,20}"),
+    itemLabelNameElement.appendChild(itemInputNameElement);
 
   const itemLabelSurnameElement = document.createElement("label");
   const itemInputSurnameElement = document.createElement("input");
@@ -75,7 +76,8 @@ function displayForm() {
     (itemInputSurnameElement.placeholder = "Entrez votre prénom"),
     (itemInputSurnameElement.name = "surname"),
     (itemInputSurnameElement.id = "surnameId");
-  itemLabelSurnameElement.appendChild(itemInputSurnameElement);
+  (itemInputSurnameElement.pattern = "[A-zÀ-ž\s -? ]{2,20}"),
+    itemLabelSurnameElement.appendChild(itemInputSurnameElement);
 
   const itemLabelAdressElement = document.createElement("label");
   const itemInputAdressElement = document.createElement("input");
@@ -85,17 +87,19 @@ function displayForm() {
     (itemInputAdressElement.placeholder = "Entrez votre adresse"),
     (itemInputAdressElement.name = "adress"),
     (itemInputAdressElement.id = "adressId");
-  itemLabelAdressElement.appendChild(itemInputAdressElement);
+  (itemInputAdressElement.pattern = "[A-z0-9À-ž\s -? ]{2,30}"),
+    itemLabelAdressElement.appendChild(itemInputAdressElement);
 
   const itemLabelCityElement = document.createElement("label");
   const itemInputCityElement = document.createElement("input");
   itemLabelCityElement.setAttribute("class", "item-form-City");
   (itemLabelCityElement.textContent = "Ville"),
-    (itemInputCityElement.type = "text"),
+    // (itemInputCityElement.type = "text"),
     (itemInputCityElement.placeholder = "Entrer votre ville"),
     (itemInputCityElement.name = "city"),
     (itemInputCityElement.id = "cityId");
-  itemLabelCityElement.appendChild(itemInputCityElement);
+  (itemInputCityElement.pattern = "[A-zÀ-ž\s -? ]{2,30}"),
+    itemLabelCityElement.appendChild(itemInputCityElement);
 
   const itemLabelPostalElement = document.createElement("label");
   const itemInputPostalElement = document.createElement("input");
@@ -153,7 +157,7 @@ document.forms["form-container"].addEventListener("submit", function (e) {
     alert("Formulaire envoyé !");
   }
 
-// Récupération des valeurs du formulaires
+  // Récupération des valeurs du formulaires
   const contact = {
     lastName: document.querySelector("#nameid").value,
     firstName: document.querySelector("#surnameId").value,
@@ -166,14 +170,14 @@ document.forms["form-container"].addEventListener("submit", function (e) {
   let cartItems = localStorage.getItem("productInCart");
   cartItems = JSON.parse(cartItems);
 
-  
-// Envoyer la requête POST
+
+  // Envoyer la requête POST
   const postOrder = async function () {
     const response = await fetch("http://localhost:3000/api/teddies/order", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-    },
+      },
       body: JSON.stringify({
         contact,
         products: Object.values(cartItems).map((product) => product._id), // Envoyer les paramètres "contact" et le .id du produit
@@ -181,7 +185,7 @@ document.forms["form-container"].addEventListener("submit", function (e) {
     });
 
     const data = await response.json();
-    
+
 
     localStorage.setItem("order", data.orderId);    // Envoyer le "order" dans le locale storage 
     window.location.replace("./confirmation.html"); // afficher la page confirmation au clic de la validation du formulaire
